@@ -1,4 +1,4 @@
-package com.lin.community.controller.dto;
+package com.lin.community.dto;
 
 public class GithubUser {
     private String name;

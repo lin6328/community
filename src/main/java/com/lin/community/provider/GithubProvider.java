@@ -1,8 +1,8 @@
 package com.lin.community.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.lin.community.controller.dto.AccessTokenDTO;
-import com.lin.community.controller.dto.GithubUser;
+import com.lin.community.dto.AccessTokenDTO;
+import com.lin.community.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -34,8 +34,7 @@ public class GithubProvider {
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token="+ accessToken)
                 .build();
-        try {
-            Response response = client.newCall(request).execute();
+        try (Response response = client.newCall(request).execute()){
             String string = response.body().string();
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;

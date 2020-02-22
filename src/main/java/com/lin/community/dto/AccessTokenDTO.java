@@ -1,6 +1,4 @@
-package com.lin.community.controller.dto;
-
-import sun.text.bidi.BidiLine;
+package com.lin.community.dto;
 
 public class AccessTokenDTO {
     private String client_id;
